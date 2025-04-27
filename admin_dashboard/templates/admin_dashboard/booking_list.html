@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bookings List</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<div class="container my-5">
+    <h1 class="mb-4">Bookings List</h1>
+
+    <table class="table table-bordered table-hover text-center align-middle">
+        <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>Patient</th>
+                <th>Doctor</th>
+                <th>Date & Time</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for booking in bookings %}
+            <tr>
+                <td>{{ booking.id }}</td>
+                <td>{{ booking.user.full_name }}</td> <!-- or use booking.user.username if needed -->
+                <td>{{ booking.doctor.name }}</td>
+                <td>{{ booking.date }} {{ booking.time }}</td>
+                <td>
+                    {% if booking.status == 'booked' %}
+                        <span class="badge bg-success">Booked</span>
+                    {% elif booking.status == 'cancelled' %}
+                        <span class="badge bg-danger">Cancelled</span>
+                    {% elif booking.status == 'rescheduled' %}
+                        <span class="badge bg-primary">Rescheduled</span>
+                    {% else %}
+                        <span class="badge bg-secondary">{{ booking.status }}</span>
+                    {% endif %}
+                </td>
+                <td>
+                    <a href="{% url 'booking_delete' booking.id %}" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure you want to delete/cancel this booking?');">
+                        Delete
+                    </a>
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="6">No bookings found.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

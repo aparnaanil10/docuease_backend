@@ -1,0 +1,12 @@
+{% extends 'admin_dashboard/base.html' %}
+
+{% block content %}
+<h2>Hospital Detail</h2>
+
+<ul class="list-group mb-3">
+    <li class="list-group-item"><strong>Name:</strong> {{ hospital.name }}</li>
+    <li class="list-group-item"><strong>Location:</strong> {{ hospital.location }}</li>
+</ul>
+
+<a href="{% url 'hospital_list' %}" class="btn btn-secondary">Back to List</a>
+{% endblock %}

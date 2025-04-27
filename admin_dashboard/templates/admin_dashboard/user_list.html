@@ -1,0 +1,33 @@
+{% extends 'admin_dashboard/base.html' %}
+
+{% block content %}
+<h2 class="mb-4">Users List</h2>
+
+<table class="table table-hover">
+    <thead class="table-dark">
+        <tr>
+            <th>ID</th>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>Mobile Number</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for user in users %}
+        <tr>
+            <td>{{ user.id }}</td>
+            <td>{{ user.full_name }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.mobile_number }}</td>
+            <td>
+                <a href="{% url 'user_detail' user.id %}" class="btn btn-info btn-sm">View</a>
+                <a href="{% url 'user_delete' user.id %}" class="btn btn-danger btn-sm">Delete</a>
+            </td>
+        </tr>
+    {% empty %}
+        <tr><td colspan="5">No users found.</td></tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

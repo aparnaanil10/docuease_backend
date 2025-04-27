@@ -1,0 +1,15 @@
+{% extends 'admin_dashboard/base.html' %}
+
+{% block content %}
+<h2>User Detail</h2>
+
+<ul class="list-group mb-3">
+    <li class="list-group-item"><strong>Full Name:</strong> {{ user.full_name }}</li>
+    <li class="list-group-item"><strong>Email:</strong> {{ user.email }}</li>
+    <li class="list-group-item"><strong>Mobile Number:</strong> {{ user.mobile_number }}</li>
+    <li class="list-group-item"><strong>Blood Group:</strong> {{ user.blood_group }}</li>
+    <li class="list-group-item"><strong>Address:</strong> {{ user.address }}</li>
+</ul>
+
+<a href="{% url 'user_list' %}" class="btn btn-secondary">Back to List</a>
+{% endblock %}

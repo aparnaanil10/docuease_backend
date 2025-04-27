@@ -1,0 +1,47 @@
+{% extends 'admin_dashboard/base.html' %}
+
+{% block content %}
+<h1 class="mb-4">Admin Dashboard Overview</h1>
+
+<div class="row">
+    <div class="col-md-3">
+        <div class="card text-bg-primary mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Doctors</h5>
+                <p class="card-text">{{ doctors.count }} Total Doctors</p>
+                <a href="{% url 'doctor_list' %}" class="btn btn-light btn-sm">View</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card text-bg-success mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Hospitals</h5>
+                <p class="card-text">{{ hospitals.count }} Total Hospitals</p>
+                <a href="{% url 'hospital_list' %}" class="btn btn-light btn-sm">View</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card text-bg-warning mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Users</h5>
+                <p class="card-text">{{ users.count }} Total Users</p>
+                <a href="{% url 'user_list' %}" class="btn btn-light btn-sm">View</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="card text-bg-danger mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Bookings</h5>
+                <p class="card-text">{{ appointments.count }} Total Bookings</p>
+                <a href="{% url 'booking_list' %}" class="btn btn-light btn-sm">View</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

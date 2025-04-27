@@ -1,0 +1,14 @@
+{% extends 'admin_dashboard/base.html' %}
+
+{% block content %}
+<h2>Booking Detail</h2>
+
+<ul class="list-group mb-3">
+    <li class="list-group-item"><strong>Patient:</strong> {{ booking.user.full_name }}</li>
+    <li class="list-group-item"><strong>Doctor:</strong> {{ booking.doctor.name }}</li>
+    <li class="list-group-item"><strong>Date & Time:</strong> {{ booking.appointment_datetime }}</li>
+    <li class="list-group-item"><strong>Status:</strong> {{ booking.status }}</li>
+</ul>
+
+<a href="{% url 'booking_list' %}" class="btn btn-secondary">Back to List</a>
+{% endblock %}
