@@ -24,11 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-w6yqqq07_$6sffff^^)p@j6iq*nx%asg7zt!ju3j160m)9x2go'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.getenv('DEBUG', 'False') == 'True'
+DEBUG = os.getenv('DEBUG', 'False') == 'False'
 
 ALLOWED_HOSTS = ['docueasebackend-production.up.railway.app']
-if os.getenv('DEBUG', 'True') == 'True':
-    ALLOWED_HOSTS += ['localhost', '127.0.0.1']
 CORS_ALLOW_ALL_ORIGINS = True
 
 # Application definition
